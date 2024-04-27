@@ -1,0 +1,21 @@
+1.Create a new bucket:
+ gsutil mb -c nearline -l us-central1 gs://my-awesome-bucket
+
+2.To enable versioning:
+  gsutil mb -b on -c [STORAGE_CLASS] -l [LOCATION] gs://[BUCKET_NAME]
+
+3.To upload files in the bucket:
+  gsutil cp [LOCAL_FILE_PATH] gs://[BUCKET_NAME]/
+
+4.To upload multiple files in the bucket:
+ gsutil cp [LOCAL_DIRECTORY_OR_PATTERN] gs://[BUCKET_NAME]/
+
+5.To move objects from one bucket to another bucket:
+  gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKET_NAME]/
+
+6.To delete objects in the bucket:
+  gsutil rm gs://[BUCKET_NAME]/[OBJECT_NAME]
+
+7.To set retention policy:
+  gsutil retention set <PERIOD> gs://[BUCKET_NAME]
+
