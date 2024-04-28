@@ -28,23 +28,36 @@
 *To set retention policy:
   gsutil retention set <PERIOD> gs://[BUCKET_NAME]
 
+*To add lifecycle rule to the bucket:
+  gsutil lifecycle set LIFECYCLE_CONFIG_FILE gs://BUCKET_NAME
+{
+  "rule":
+  [
+    {
+      "action": {"type": "Delete"},
+      "condition": {"age": 365}
+    }
+  ]
+}
+
+
 *To add sevice account to a particular bucket:
- gsutil iam ch serviceAccount:example@project-id.iam.gserviceaccount.com:roles/YOUR_ROLE gs://adq-bucket-dev-getteam
+ gsutil iam ch serviceAccount:example@project-id.iam.gserviceaccount.com:roles/YOUR_ROLE gs://[BUCKET_NAME]
 
 *To remove service account from a bucket:
- gsutil iam ch -d serviceAccount:example@project-id.iam.gserviceaccount.com gs://adq-bucket-dev-getteam    |ch=change|-d=detach|
+ gsutil iam ch -d serviceAccount:example@project-id.iam.gserviceaccount.com gs://[BUCKET_NAME]   |ch=change|-d=detach|
 
 *To see the permissions a user have on bucket:
- gsutil iam get gs://adq-bucket-dev-getteam
+ gsutil iam get gs://[BUCKET_NAME]
 
 *To make bucket publicly visible:
- gsutil iam ch allUsers:objectViewer gs://adq-bucket-dev-getteam
+ gsutil iam ch allUsers:objectViewer gs://[BUCKET_NAME]
 
 *To remove access to all users:
- gsutil iam ch -d allUsers gs://adq-bucket-dev-getteam             |ch=change|-d=detach|
+ gsutil iam ch -d allUsers gs://[BUCKET_NAME]             |ch=change|-d=detach|
 
 *Setting Access Control Lists (ACLs): To set read, write, owner permissions to a user.
  gsutil acl ch -u USER:PERMISSION gs://BUCKET_NAME/OBJECT_NAME       |ch=change|-u=user|
 
 *To delete a bucket:
- gsutil rm -r gs://your-bucket-name        |rm=remove/delete|-r=recursively delete the objects and subdirectories in the bucket|
+ gsutil rm -r gs://[BUCKET_NAME]        |rm=remove/delete|-r=recursively delete the objects and subdirectories in the bucket|
