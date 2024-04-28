@@ -1,21 +1,50 @@
-1.Create a new bucket:
- gsutil mb -c nearline -l us-central1 gs://my-awesome-bucket
+*To list all the buckets in a Project:
+  gsutil ls -p PROJECT_ID     |ls=list|
 
-2.To enable versioning:
-  gsutil mb -b on -c [STORAGE_CLASS] -l [LOCATION] gs://[BUCKET_NAME]
+*List Contents of a Bucket:
+  gsutil ls gs://BUCKET_NAME     |ls=list|
 
-3.To upload files in the bucket:
-  gsutil cp [LOCAL_FILE_PATH] gs://[BUCKET_NAME]/
+*Create a new bucket:
+  gsutil mb -c nearline -l us-central1 gs://[BUCKET_NAME]
 
-4.To upload multiple files in the bucket:
- gsutil cp [LOCAL_DIRECTORY_OR_PATTERN] gs://[BUCKET_NAME]/
+*To enable versioning:
+  gsutil mb -b on -c [STORAGE_CLASS] -l [LOCATION] gs://[BUCKET_NAME]         |mb=make_bucket|-b=versioning|-c=storage_class|-l=location|
 
-5.To move objects from one bucket to another bucket:
-  gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKET_NAME]/
+*To upload files in the bucket:
+  gsutil cp [LOCAL_FILE_PATH] gs://[BUCKET_NAME]/      |cp=copy|
 
-6.To delete objects in the bucket:
-  gsutil rm gs://[BUCKET_NAME]/[OBJECT_NAME]
+*To copy files from bucket to local:
+ gsutil cp gs://SOURCE_BUCKET_NAME/OBJECT_NAME  DESTINATION      |cp=copy|
 
-7.To set retention policy:
+*To upload multiple files in the bucket:
+  gsutil cp [LOCAL_DIRECTORY_OR_PATTERN] gs://[BUCKET_NAME]/             |cp=copy|
+
+*To move objects from one bucket to another bucket:
+  gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKET_NAME]/           |mv=move|
+
+*To delete objects in the bucket:
+  gsutil rm gs://[BUCKET_NAME]/[OBJECT_NAME]        |rm=remove|
+
+*To set retention policy:
   gsutil retention set <PERIOD> gs://[BUCKET_NAME]
 
+*To add sevice account to a particular bucket:
+ gsutil iam ch serviceAccount:example@project-id.iam.gserviceaccount.com:roles/YOUR_ROLE gs://adq-bucket-dev-getteam
+
+*To remove service account from a bucket:
+ gsutil iam ch -d serviceAccount:example@project-id.iam.gserviceaccount.com gs://adq-bucket-dev-getteam    |ch=change|-d=detach|
+
+*To see the permissions a user have on bucket:
+ gsutil iam get gs://adq-bucket-dev-getteam
+
+*To make bucket publicly visible:
+ gsutil iam ch allUsers:objectViewer gs://adq-bucket-dev-getteam
+
+*To remove access to all users:
+ gsutil iam ch -d allUsers gs://adq-bucket-dev-getteam             |ch=change|-d=detach|
+
+*Setting Access Control Lists (ACLs): To set read, write, owner permissions to a user.
+ gsutil acl ch -u USER:PERMISSION gs://BUCKET_NAME/OBJECT_NAME       |ch=change|-u=user|
+
+*To delete a bucket:
+ gsutil rm -r gs://your-bucket-name        |rm=remove/delete|-r=recursively delete the objects and subdirectories in the bucket|
