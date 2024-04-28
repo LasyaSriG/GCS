@@ -36,6 +36,3 @@ Cost Management:
 GCS pricing is based on factors such as storage usage, data transfer, and retrieval costs. By understanding these factors and monitoring usage, users can optimize their storage costs and avoid unexpected charges.
 Budget alerts and billing reports can help users track and manage their spending, allowing them to stay within budget and avoid overspending on storage.
 
-Hands-On Demonstration:
-In a hands-on demonstration, participants would be guided through the process of creating a GCS bucket, uploading objects, setting permissions, configuring lifecycle policies, and performing other common tasks.
-This hands-on experience allows participants to apply the concepts they've learned and gain practical experience working with GCS.
