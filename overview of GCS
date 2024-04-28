@@ -6,6 +6,12 @@ Key Concepts:
 Buckets: A bucket is a top-level container for storing data in GCS. It is similar to a folder in a file system and has a globally unique name. Buckets can be created and managed through the GCP Console, the gsutil command-line tool, or the GCS API.
 Objects: Objects are individual pieces of data stored within buckets. Each object is identified by a unique key and consists of data (such as a file) and metadata (such as content type and storage class).
 
+Storage Classes:
+STANDARD(Best for short-term storage and frequently accessed data)				
+NEARLINE(Best for backups and data accessed less than once a month)				
+COLDLINE(Best for disaster recovery and data accessed less than once a quarter)			
+ARCHIVE(Best for long-term digital preservation of data accessed less than once a year)
+
 Access Control:
 Access to buckets and objects in GCS is controlled through Identity and Access Management (IAM) policies. IAM allows users to define who has access to resources and what actions they can perform.
 IAM policies can be set at the bucket level or the object level, allowing for fine-grained control over access permissions.
