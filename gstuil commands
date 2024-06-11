@@ -56,5 +56,8 @@
 *To remove access to all users:
  gsutil iam ch -d allUsers gs://[BUCKET_NAME]             |ch=change|-d=detach|
 
+*resynchronization of buckets:
+ gsutil rsync -r gs://[SOURCE_BUCKET_NAME] gs://[DESTINATION_BUCKET_NAME]
+
 *To delete a bucket:
  gsutil rm -r gs://[BUCKET_NAME]        |rm=remove/delete|-r=recursively delete the objects and subdirectories in the bucket|
